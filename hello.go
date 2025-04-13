@@ -1,7 +1,20 @@
-package main 
+package main
 
-import "fmt"
+import (
+	"fmt"
+	"log"
+
+	"example.com/greetings"
+)
 
 func main() {
-	fmt.Println("Hello, world")
+	log.SetPrefix("greetings: ")
+	log.SetFlags(0)
+
+	message, err := greetings.Hello("Aqil")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println(message)
 }
